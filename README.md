@@ -1,25 +1,28 @@
-## users table
-### column
-- mail string
-- password string
-- name string
-- member strig
-- profile string
-- works string
-- avatar string
+** userテーブル
+|Column|Type|Options|
+|------|----|-------|
+|mail|string|null: false, unique: true|
+|password|string|null: false, unique: true|
+|name|string|null: false|
+|member|string|-------|
+|profile|string|-------|
+|works|string|-------|
+|avatar|string|-------|
 
-### association
+
+*** association
 - user has_many prototypes
 - user has_many comments
 - user has_many likes
 
 ## prototypes table
-### column
-- title string
-- user_id references
-- catch_copy string
-- concept string
-- created_at timestamp
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|user_id|string|-------|
+|catch_copy|string|null: false|
+|concept|string|null: false|
+|created_at|string|-------|
 
 ### association
 - prototype has_many images
@@ -27,28 +30,31 @@
 - prototype has_many comments
 
 ## images table
-### column
-- status integer
-- image string
-- prototype_id references
+|Column|Type|Options|
+|------|----|-------|
+|status|integer|-------|
+|image|string|null: false|
+|prototype_id|string|null: false|
 
 ### association
 - image belongs_to prototype
 
 ## likes table
-### column
-- user_id references
-- prototype_id references
+|Column|Type|Options|
+|------|----|-------|
+|user_id|string|null: false|
+|prototype_id|string|null: false|
 
 ### association
 - like belongs_to user
 - like belongs_to prototype
 
 ## comments table
-### column
-- text text
-- user_id references
-- prototype_id references
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user_id|string|null: false|
+|prototype_id|string|null: false|
 
 ### association
 - comment belongs_to prototype
