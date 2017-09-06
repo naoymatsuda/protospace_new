@@ -1,28 +1,55 @@
-== README
+## users table
+### association
+- user has_many prototypes
+- user has_many comments
+- user has_many likes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### column
+- mail string
+- password string
+- name string
+- member strig
+- profile string
+- works string
+- avatar string
 
-Things you may want to cover:
+## prototypes table
+### association
+- prototype has_many images
+- prototype has_many likes
+- prototype has_many comments
 
-* Ruby version
+### column
+- title string
+- user_id references
+- catch_copy string
+- concept string
+- created_at timestamp
 
-* System dependencies
+## images table
+### association
+- image belongs_to prototype
 
-* Configuration
+### column
+- status integer
+- image string
+- prototype_id references
 
-* Database creation
+## likes table
+### association
+- like belongs_to user
+- like belongs_to prototype
 
-* Database initialization
+### column
+- user_id references
+- prototype_id references
 
-* How to run the test suite
+## comments table
+### association
+- comment belongs_to prototype
+- comment belongs_to user
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### column
+- text text
+- user_id references
+- prototype_id references
