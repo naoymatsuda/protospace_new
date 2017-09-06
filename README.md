@@ -1,4 +1,4 @@
-** user table
+## user table
 |Column|Type|Options|
 |------|----|-------|
 |mail|string|null: false, unique: true|
