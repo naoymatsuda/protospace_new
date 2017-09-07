@@ -48,3 +48,5 @@ group :development do
 end
 
 gem 'haml-rails'
+
+gem 'bootstrap-sass', '~> 3.3.6'
