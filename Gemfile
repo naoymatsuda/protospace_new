@@ -49,5 +49,3 @@ end
 
 gem 'haml-rails'
 
-gem 'pry-rails'
-
