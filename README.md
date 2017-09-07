@@ -1,61 +1,55 @@
-## user table
-|Column|Type|Options|
-|------|----|-------|
-|mail|string|null: false, unique: true|
-|password|string|null: false, unique: true|
-|name|string|null: false|
-|member|string|-------|
-|profile|string|-------|
-|works|string|-------|
-|avatar|string|-------|
-
-
-*** association
+## users table
+### association
 - user has_many prototypes
 - user has_many comments
 - user has_many likes
 
-## prototypes table
-|Column|Type|Options|
-|------|----|-------|
-|title|string|null: false|
-|user_id|string|-------|
-|catch_copy|string|null: false|
-|concept|string|null: false|
-|created_at|string|-------|
+### column
+- mail string
+- password string
+- name string
+- member strig
+- profile string
+- works string
+- avatar string
 
+## prototypes table
 ### association
 - prototype has_many images
 - prototype has_many likes
 - prototype has_many comments
 
-## images table
-|Column|Type|Options|
-|------|----|-------|
-|status|integer|-------|
-|image|string|null: false|
-|prototype_id|string|null: false|
+### column
+- title string
+- user_id references
+- catch_copy string
+- concept string
+- created_at timestamp
 
+## images table
 ### association
 - image belongs_to prototype
 
-## likes table
-|Column|Type|Options|
-|------|----|-------|
-|user_id|string|null: false|
-|prototype_id|string|null: false|
+### column
+- status integer
+- image string
+- prototype_id references
 
+## likes table
 ### association
 - like belongs_to user
 - like belongs_to prototype
 
-## comments table
-|Column|Type|Options|
-|------|----|-------|
-|text|text|null: false|
-|user_id|string|null: false|
-|prototype_id|string|null: false|
+### column
+- user_id references
+- prototype_id references
 
+## comments table
 ### association
 - comment belongs_to prototype
 - comment belongs_to user
+
+### column
+- text text
+- user_id references
+- prototype_id references
