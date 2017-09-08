@@ -2,7 +2,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |mail|string|null: false, unique: true|
-|password|string|null: false, unique: true|
+|password|string|null: false|
 |name|string|null: false|
 |member|string|-------|
 |profile|string|-------|
@@ -19,7 +19,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |title|string|null: false|
-|user_id|string|-------|
+|user_id|string|null: false|
 |catch_copy|string|null: false|
 |concept|string|null: false|
 |created_at|string|-------|
@@ -32,7 +32,7 @@
 ## images table
 |Column|Type|Options|
 |------|----|-------|
-|status|integer|-------|
+|status|integer|null:false,default:main|
 |image|string|null: false|
 |prototype_id|string|null: false|
 
