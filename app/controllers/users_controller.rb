@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.all
+    @user = User.find(params[:id])
   end
 
   def edit
-    # binding.pry
     @user = User.find(params[:id])
   end
 
@@ -15,7 +14,7 @@ class UsersController < ApplicationController
       redirect_to root_path, notice: 'アップデートに成功しました'
     else
       flash[:alert] = 'アップデートに失敗しました'
-      render :new
+      render :edit
     end
   end
 
