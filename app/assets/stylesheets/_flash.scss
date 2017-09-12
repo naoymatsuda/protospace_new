@@ -1,0 +1,14 @@
+.flash {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  &__alert{
+    background-color: #FF6699;
+    height: 25px;
+  }
+  &__notice {
+    background-color: #3399FF;
+    height: 25px;
+  }
+}
