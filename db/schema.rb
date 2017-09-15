@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170915070923) do
+ActiveRecord::Schema.define(version: 20170915101111) do
 
   create_table "images", force: :cascade do |t|
     t.string   "image",        limit: 255, null: false
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20170915070923) do
     t.datetime "updated_at",               null: false
   end
 
+  add_index "images", ["prototype_id"], name: "index_images_on_prototype_id", using: :btree
+
   create_table "prototypes", force: :cascade do |t|
     t.string   "title",      limit: 255, null: false
     t.string   "user_id",    limit: 255, null: false
@@ -29,6 +31,8 @@ ActiveRecord::Schema.define(version: 20170915070923) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "prototypes", ["user_id"], name: "index_prototypes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
