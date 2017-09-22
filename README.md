@@ -28,6 +28,7 @@
 - prototype has_many images
 - prototype has_many likes
 - prototype has_many comments
+- prototype belongs_to :user
 
 ## images table
 |Column|Type|Options|
