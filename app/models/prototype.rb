@@ -8,5 +8,6 @@ class Prototype < ActiveRecord::Base
   has_many :comments
 
   belongs_to :user
+  accepts_nested_attributes_for :images, reject_if: :reject_image
 
 end
