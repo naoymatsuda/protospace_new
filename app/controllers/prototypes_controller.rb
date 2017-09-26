@@ -9,16 +9,17 @@ class PrototypesController < ApplicationController
   end
 
   def create
-  	@prototypes = Prototype.new(prototype_params)
-  	if @prototypes.save
-  	  redirect_to root_path, notice: 'Your post is success'
+  	@prototype = Prototype.new(prototype_params)
+  	binding.pry
+  	if @prototype.save
+  	  redirect_to root_path, notice: ' Post was successful '
   	else
-  	  render action: :new
-  	  redirect_to new_prototype_path, alert: 'Your post is unsuccessful'
+  	  redirect_to new_prototype_path, alert: ' Post was unsuccessful '
     end
   end
 
   def prototype_params
-  	params.require(:prototype).permit(:title, :catch_copy, :concept, images_attributes: [:id, :status, :image]).merge(user_id: current_user.id)
+  	params.require(:prototype).permit(:title, :catch_copy, :concept, images_attributes: [:image, :status, :id]).merge(user_id: current_user.id)
   end
+
 end
