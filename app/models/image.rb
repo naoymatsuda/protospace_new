@@ -3,4 +3,6 @@ class Image < ActiveRecord::Base
 
   belongs_to :prototype, required: true
 
+  mount_uploader :image, ImagesUploader
+
 end
