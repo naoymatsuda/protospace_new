@@ -6,21 +6,21 @@
     .row
       .col-md-12
         .cover-image-upload
-          = fields_for @images , url: prototypes_path do |i|
+          = f.fields_for :images do |i|
             = i.file_field :image
-            = i.hidden_field :status
+            = i.hidden_field :status, value: "main"
       .col-md-12
         %ul.proto-sub-list.list-group
           %li.list-group-item.col-md-4
             .image-upload
-              = fields_for @images, url: prototypes_path do |i|
+              = f.fields_for :images do |i|
                 = i.file_field :image
-                = i.hidden_field :status
+                = i.hidden_field :status, value: "sub"
           %li.list-group-item.col-md-4
             .image-upload
-              = fields_for @images, url: prototypes_path do |i|
+              = f.fields_for :images do |i|
                 = i.file_field :image
-                = i.hidden_field :status
+                = i.hidden_field :status, value: "sub"
           %li.list-group-item.col-md-4
             .image-upload-plus
               %span +
