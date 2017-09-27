@@ -5,13 +5,12 @@ class PrototypesController < ApplicationController
 
   def new
   	@prototype = Prototype.new
-  	@images = Image.new
+  	@prototype.images.build
   end
 
   def create
   	@prototype = Prototype.new(prototype_params)
-  	@images = Image.new(image_params)
-  	if @prototype.save && @images.save
+  	if @prototype.save
   	  redirect_to root_path, notice: ' Post was successful '
   	else
   	  redirect_to new_prototype_path, alert: ' Post was unsuccessful '
@@ -19,11 +18,7 @@ class PrototypesController < ApplicationController
   end
 
   def prototype_params
-  	params.require(:prototype).permit(:title, :catch_copy, :concept).merge(user_id: current_user.id)
-  end
-
-  def image_params
-  	params.require(:image).permit(:image, :status)
+  	params.require(:prototype).permit(:title, :catch_copy, :concept, images_attributes: [:image, :status, :id]).merge(user_id: current_user.id)
   end
 
 end
