@@ -3,3 +3,4 @@ class AddIndexImagePrototypeId < ActiveRecord::Migration
     add_index :images, :prototype_id
   end
 end
+
