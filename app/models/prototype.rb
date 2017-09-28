@@ -9,6 +9,8 @@ class Prototype < ActiveRecord::Base
 
   belongs_to :user
 
+  has_one :main_image, -> { where(status: 0) }, class_name: 'Image'
+
   accepts_nested_attributes_for :images
 
 end
