@@ -1,6 +1,7 @@
 class PrototypesController < ApplicationController
 
   def index
+  	@prototypes = Prototype.includes(:images)
   end
 
   def new
