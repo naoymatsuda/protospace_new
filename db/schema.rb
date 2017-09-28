@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170927122449) do
     t.integer  "status",       limit: 4,                 null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+
   end
 
   add_index "images", ["prototype_id"], name: "index_images_on_prototype_id", using: :btree

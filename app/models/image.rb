@@ -5,4 +5,5 @@ class Image < ActiveRecord::Base
   mount_uploader :image, ImagesUploader
 
   enum status: { main: 0, sub: 1 }
+
 end

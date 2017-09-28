@@ -9,3 +9,4 @@ class CreatePrototypes < ActiveRecord::Migration
     end
   end
 end
+
