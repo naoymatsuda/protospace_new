@@ -44,7 +44,7 @@
   .row.proto-comments
     %h4.col-md-12
     Comments
-    %span.num (10)
+    %span.num (#{@comments.count})
   #comment_area.col-md-8
     .comment-list
       = render partial: "comments/comment", locals: {prototype: @prototype ,comment: @comment,comments: @comments}
