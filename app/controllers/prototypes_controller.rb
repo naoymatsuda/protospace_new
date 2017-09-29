@@ -9,6 +9,10 @@ class PrototypesController < ApplicationController
     @prototype.images.build
   end
 
+  def show
+    @prototype = Prototype.find(params[:id])
+  end
+
   def create
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
