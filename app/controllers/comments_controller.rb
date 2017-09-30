@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def new
     @comment = Comment.new
   end
@@ -14,5 +13,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:text)[:text]
   end
-
 end
