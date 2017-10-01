@@ -1,0 +1,19 @@
+- comments.each do |comment|
+  .media
+    .media-left
+      = image_tag comment.user.avatar , class: 'media-object' , alt: "64x64", data:{ src: "holder.js/64x64", holder:{rendered: true}}, size: "64x64"
+    .media-body
+      %h4#top-aligned-media.media-heading
+        = comment.user.name
+        %a.anchorjs-link{href: "#top-aligned-media"}
+          %span.anchorjs-icon
+      = comment.text
+
+- if user_signed_in?
+  = form_for [prototype, comment], remote: true do |f|
+    %h4 Write a comment
+    .row
+      .form-group.col-md-10
+        = f.text_area :text, placeholder: "Your comments", class: "form-control", required: true
+      .form-group.col-md-2
+    = f.submit "Comment", class: 'btn btn-primary'
