@@ -1,0 +1,24 @@
+- if user_signed_in?
+  - if find_like.nil?
+    = link_to prototype_likes_path(prototype), method: :post, remote: true do
+      %button.btn.btn-default
+        = image_tag "icon_heart.svg"
+        Like
+        %span.num
+          = prototype.likes.count
+
+  - else
+    = link_to prototype_like_path(prototype, like), method: :delete, remote: true do
+      %button.btn.btn-default
+        = image_tag "icon_red_heart.svg"
+        Like
+        %span.num
+          = prototype.likes.count
+
+- else
+  = link_to new_user_session_path do
+    %button.btn.btn-default
+      = image_tag "icon_heart.svg"
+      Like
+      %span.num
+        = prototype.likes.count
