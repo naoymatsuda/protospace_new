@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930154856) do
+ActiveRecord::Schema.define(version: 20171002104002) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "text",         limit: 65535, null: false
@@ -34,13 +34,21 @@ ActiveRecord::Schema.define(version: 20170930154856) do
 
   add_index "images", ["prototype_id"], name: "index_images_on_prototype_id", using: :btree
 
+  create_table "likes", force: :cascade do |t|
+    t.string   "user_id",      limit: 255, null: false
+    t.string   "prototype_id", limit: 255, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "prototypes", force: :cascade do |t|
-    t.string   "title",      limit: 255, null: false
-    t.string   "user_id",    limit: 255, null: false
-    t.string   "catch_copy", limit: 255, null: false
-    t.string   "concept",    limit: 255, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title",       limit: 255, null: false
+    t.string   "user_id",     limit: 255, null: false
+    t.string   "catch_copy",  limit: 255, null: false
+    t.string   "concept",     limit: 255, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "likes_count", limit: 4
   end
 
   add_index "prototypes", ["user_id"], name: "index_prototypes_on_user_id", using: :btree
