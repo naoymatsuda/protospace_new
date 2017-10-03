@@ -1,12 +1,12 @@
 class LikesController < ApplicationController
+  before_action :like_set
+
   def create
     @like = current_user.likes.create(prototype_id: params[:prototype_id])
-    like_set
   end
 
   def destroy
     @like = Like.find(params[:id]).destroy
-    like_set
   end
 
   private
