@@ -6,7 +6,9 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find(params[:id]).destroy
+    @like = Like.find(params[:id])
+    @like.destroy
+    render json: [ :like => @like ]
   end
 
   private
