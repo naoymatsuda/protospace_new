@@ -6,7 +6,6 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @like = Like.find(params[:id])
     @like.destroy
     # render json: @like
