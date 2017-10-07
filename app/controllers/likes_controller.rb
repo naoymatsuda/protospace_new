@@ -1,20 +1,19 @@
 class LikesController < ApplicationController
-  before_action :like_set
+  before_action :set_like
 
   def create
     @like = current_user.likes.create(prototype_id: params[:prototype_id])
   end
 
   def destroy
+    binding.pry
     @like = Like.find(params[:id])
     @like.destroy
-    render json: [ :like => @like ]
+    # render json: @like
   end
 
   private
-  def like_set
+  def set_like
     @prototype = Prototype.find(params[:prototype_id])
-    @likes = Like.where(prototype_id: params[:prototype_id])
-    @find_like = Like.find_by(user_id: current_user.id, prototype_id: params[:prototype_id])
   end
 end
