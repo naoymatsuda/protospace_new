@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :set_like
+  before_action :set_prototype
 
   def create
     @like = current_user.likes.create(prototype_id: params[:prototype_id])
@@ -12,7 +12,7 @@ class LikesController < ApplicationController
   end
 
   private
-  def set_like
+  def set_prototype
     @prototype = Prototype.find(params[:prototype_id])
   end
 end
