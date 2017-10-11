@@ -1,7 +1,7 @@
 class PrototypesController < ApplicationController
 
   def index
-    @prototypes = Prototype.includes(:images).order('likes_count DESC')
+    @prototypes = Prototype.includes(:images).order('likes_count ASC')
   end
 
   def newest
