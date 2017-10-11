@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     collection do
       get 'newest'
     end
+    resources :likes, only: [:create, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
 end

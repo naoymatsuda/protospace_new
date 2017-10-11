@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def show
+    @user = User.preload(:prototypes).find(params[:id])
     @prototypes = @user.prototypes
-    @user = User.find(params[:id])
   end
 
   def edit
