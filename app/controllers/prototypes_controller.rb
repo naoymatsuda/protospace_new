@@ -17,6 +17,7 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
     @comment = Comment.new
     @comments = Comment.where(prototype_id: params[:id])
+    @like = Like.find_by(user_id: @prototype.user_id, prototype_id: params[:id])
   end
 
   def create
