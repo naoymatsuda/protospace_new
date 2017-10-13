@@ -6,6 +6,7 @@ class PrototypesController < ApplicationController
 
   def newest
     @prototypes = Prototype.includes(:images).order('created_at DESC')
+    render action: :index
   end
 
   def new
