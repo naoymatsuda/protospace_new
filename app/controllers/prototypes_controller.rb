@@ -4,11 +4,6 @@ class PrototypesController < ApplicationController
     @prototypes = Prototype.includes(:images).order('likes_count ASC')
   end
 
-  def newest
-    @prototypes = Prototype.includes(:images).order('created_at DESC')
-    render action: :index
-  end
-
   def new
     @prototype = Prototype.new
     @prototype.images.build
