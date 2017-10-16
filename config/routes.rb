@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'prototypes_latests/index'
+  get '/prototypes/latest' => "prototypes/latests#index"
 
   devise_for :users
   root 'prototypes#index'
@@ -8,5 +8,4 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
-  resources :prototypes_latests, only: [:index]
 end
