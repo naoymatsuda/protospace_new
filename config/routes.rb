@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/prototypes/latest' => "prototypes/latests#index"
+
   devise_for :users
   root 'prototypes#index'
   resources :prototypes, only: [:new, :create, :index, :show] do
