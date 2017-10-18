@@ -5,9 +5,9 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li{role: "presentation"}
-          = link_to "Popular PROTO", root_path
         %li.active{role: "presentation"}
+          = link_to "Popular PROTO", root_path
+        %li{role: "presentation"}
           = link_to "Latest PROTO", prototypes_latest_path
       = link_to "View Tags", tags_path, class: "btn btn-default col-lg-1", name: "button"
 .container.proto-list
