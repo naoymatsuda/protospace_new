@@ -58,3 +58,5 @@ gem 'carrierwave'
 gem "mini_magick"
 
 gem 'rubocop'
+
+gem 'acts-as-taggable-on', '~> 3.4'
