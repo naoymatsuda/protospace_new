@@ -16,7 +16,7 @@
             = link_to "Popular PROTO", root_path
           %li{role: "presentation"}
             = link_to "Latest PROTO", prototypes_latest_path
-      = link_to "View Tags", tags_path, class: "btn btn-default col-lg-1"
+      = link_to "View Tags", tags_path, class: "btn btn-default col-lg-1" #変更箇所
 
 .container.proto-list
   .row
@@ -42,3 +42,4 @@
     %li
       %a{"aria-label": "Next", href: "#"}
         %span{"aria-hidden": "true"} »
+

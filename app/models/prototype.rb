@@ -13,6 +13,6 @@ class Prototype < ActiveRecord::Base
 
   accepts_nested_attributes_for :images
 
-  acts_as_taggable
-  acts_as_taggable_on :prototypes
+  acts_as_taggable #変更箇所
+  acts_as_taggable_on :prototypes #変更箇所
 end
