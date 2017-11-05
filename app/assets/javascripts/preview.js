@@ -1,20 +1,22 @@
 $(function(){
-  $('.js-file').on('change', 'input[type="file"]', function(e) {
+  $('.js-file').on('change', 'input[type="file"]', function(e) {　　　
     var file = e.target.files[0];
     var reader = new FileReader();
-    var $preview = $(e.currentTarget).find('.preview');
-    var previewSize = $preview.data('preview_size')
+    var $preview = $(e.currentTarget).next().attr('class');
+    var $dot = ".";
+    var previewclass = $dot + $preview
+    var $previewsize = $(e.currentTarget).data('previewsize');
 
     if (!this.files.length) {
         return;
     }
-
-    reader.onload = (function(file) {
+    debugger
+    reader.onload = (function(file, $previewclass) {
       return function(e) {
-        $preview.empty();
-        $preview.append($('<img>').attr({
+        previewclass.empty();
+        previewclass.append($('<img>').attr({
                   src: e.target.result,
-                  width: previewSize,
+                  width: $previewsize,
                   class: "preview",
                   title: file.name
               }));
