@@ -5,22 +5,25 @@
         = f.text_field :title, placeholder: "Title", class: "proto-new-title"
     .row
       .col-md-12
-        .cover-image-upload
+        .cover-image-upload.js-file
           = f.fields_for :images do |i|
-            = i.file_field :image
             = i.hidden_field :status, value: "main"
+            = i.file_field :image, data: {previewsize: "730px"}
+            .preview
       .col-md-12
         %ul.proto-sub-list.list-group
-          %li.list-group-item.col-md-4
+          %li.list-group-item.col-md-4.js-file
             .image-upload
               = f.fields_for :images do |i|
-                = i.file_field :image
                 = i.hidden_field :status, value: "sub"
-          %li.list-group-item.col-md-4
+                = i.file_field :image, data: {previewsize: "200px"}
+                .preview
+          %li.list-group-item.col-md-4.js-file
             .image-upload
               = f.fields_for :images do |i|
-                = i.file_field :image
                 = i.hidden_field :status, value: "sub"
+                = i.file_field :image, data: {previewsize: "200px"}
+                .preview
           %li.list-group-item.col-md-4
             .image-upload-plus
               %span +
